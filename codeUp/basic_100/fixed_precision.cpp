@@ -5,8 +5,9 @@ using namespace std;
 
 
 int main () {
-    double a = 113.1412923;
-    // cin >> a;
+    // double a = 113.1412923;
+    double a;
+    cin >> a;
     cout << fixed; // 소수점 아래로 고정하겠다.
     cout.precision(6); // 두 번째 자리까지.
     cout << a << endl;
