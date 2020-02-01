@@ -1,0 +1,62 @@
+!SESSION 2020-01-15 15:14:21.569 -----------------------------------------------
+eclipse.buildId=4.12.0.I20190605-1800
+java.version=12.0.2
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=ko_KR
+Framework arguments:  -product org.eclipse.epp.package.jee.product -keyring /Users/pyo/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.jee.product -keyring /Users/pyo/.eclipse_keyring
+
+!ENTRY org.eclipse.core.net 1 0 2020-01-15 15:15:17.759
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16|lx.astxsvc.com|*.lx.astxsvc.com|localhost|*.localhost by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.eclipse.egit.core 1 0 2020-01-15 15:15:17.799
+!MESSAGE Using Apache MINA sshd as ssh client.
+
+!ENTRY org.eclipse.equinox.p2.operations 4 10053 2020-01-15 15:22:34.139
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 10053 2020-01-15 15:22:34.139
+!MESSAGE Cannot complete the install because one or more required items could not be found.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2020-01-15 15:22:34.139
+!MESSAGE Software being installed: C/C++ Debug Adapter GDB Hardware Debugger Integration 9.10.0.201910281707 (org.eclipse.cdt.debug.dap.gdbjtag.feature.group 9.10.0.201910281707)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2020-01-15 15:22:34.139
+!MESSAGE Missing requirement: C/C++ Debug Adapter GDB Hardware Debugger Integration 9.10.0.201910281707 (org.eclipse.cdt.debug.dap.gdbjtag.feature.group 9.10.0.201910281707) requires 'org.eclipse.equinox.p2.iu; org.eclipse.lsp4e 0.11.0' but it could not be found
+
+!ENTRY org.eclipse.equinox.p2.operations 4 10053 2020-01-15 15:22:34.164
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 10053 2020-01-15 15:22:34.164
+!MESSAGE Cannot complete the install because one or more required items could not be found.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2020-01-15 15:22:34.164
+!MESSAGE Software being installed: C/C++ Debug Adapter GDB Hardware Debugger Integration 9.10.0.201910281707 (org.eclipse.cdt.debug.dap.gdbjtag.feature.group 9.10.0.201910281707)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2020-01-15 15:22:34.164
+!MESSAGE Missing requirement: C/C++ Debug Adapter GDB Hardware Debugger Integration 9.10.0.201910281707 (org.eclipse.cdt.debug.dap.gdbjtag.feature.group 9.10.0.201910281707) requires 'org.eclipse.equinox.p2.iu; org.eclipse.lsp4e 0.11.0' but it could not be found
+
+!ENTRY org.eclipse.equinox.p2.operations 4 10053 2020-01-15 15:22:34.256
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 10053 2020-01-15 15:22:34.256
+!MESSAGE Cannot complete the install because one or more required items could not be found.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2020-01-15 15:22:34.256
+!MESSAGE Software being installed: C/C++ Debug Adapter GDB Hardware Debugger Integration 9.10.0.201910281707 (org.eclipse.cdt.debug.dap.gdbjtag.feature.group 9.10.0.201910281707)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2020-01-15 15:22:34.256
+!MESSAGE Missing requirement: C/C++ Debug Adapter GDB Hardware Debugger Integration 9.10.0.201910281707 (org.eclipse.cdt.debug.dap.gdbjtag.feature.group 9.10.0.201910281707) requires 'org.eclipse.equinox.p2.iu; org.eclipse.lsp4e 0.11.0' but it could not be found
+
+!ENTRY org.eclipse.equinox.p2.operations 4 10053 2020-01-15 15:22:34.257
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 10053 2020-01-15 15:22:34.257
+!MESSAGE Cannot complete the install because one or more required items could not be found.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2020-01-15 15:22:34.257
+!MESSAGE Software being installed: C/C++ Debug Adapter GDB Hardware Debugger Integration 9.10.0.201910281707 (org.eclipse.cdt.debug.dap.gdbjtag.feature.group 9.10.0.201910281707)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2020-01-15 15:22:34.257
+!MESSAGE Missing requirement: C/C++ Debug Adapter GDB Hardware Debugger Integration 9.10.0.201910281707 (org.eclipse.cdt.debug.dap.gdbjtag.feature.group 9.10.0.201910281707) requires 'org.eclipse.equinox.p2.iu; org.eclipse.lsp4e 0.11.0' but it could not be found
+!SESSION 2020-01-15 15:26:45.809 -----------------------------------------------
+eclipse.buildId=4.12.0.I20190605-1800
+java.version=12.0.2
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=ko_KR
+Framework arguments:  -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -keyring /Users/pyo/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.jee.product -data file:/Users/pyo/Desktop/algorithm/boj/sw_basic/ -product org.eclipse.epp.package.jee.product -keyring /Users/pyo/.eclipse_keyring
+
+!ENTRY org.eclipse.core.net 1 0 2020-01-15 15:26:59.303
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16|lx.astxsvc.com|*.lx.astxsvc.com|localhost|*.localhost by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.eclipse.egit.core 1 0 2020-01-15 15:26:59.370
+!MESSAGE Using Apache MINA sshd as ssh client.
