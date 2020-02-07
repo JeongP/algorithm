@@ -8,10 +8,11 @@ using namespace std;
 int a[5][5];
 
 int main () {
-    vector<int> v = {-1,1,3,5};
-    queue<int> q = {1,2,3};
+    char a = 'a';
+    char b = 'A';
 
-    cout << q[
+    if(a==b) cout << 1 << endl;
+    else cout << 2 << endl;
 
 }
 
