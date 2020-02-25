@@ -25,14 +25,21 @@ int main () {
         dp[i][1] = 1;
     }
 
-    for(int n=2;n<=N;n++) {
+    for(int n=0;n<=N;n++) {
         for(int k=2;k<=K;k++) {
             for(int j=0;j<=n;j++) {
-                dp[n][k] += (dp[j][k-1])%mod;
+                dp[n][k] = (dp[n][k] + dp[j][k-1])%mod;
             }
         }
     }
 
     cout << dp[N][K] << endl;
+    
+    // for(int i=0;i<=4;i++) {
+    //     for(int j=0;j<=4;j++) {
+    //         cout << dp[i][j] << " ";
+    //     }
+    //     cout << endl;
+    // }
     return 0;
 }
