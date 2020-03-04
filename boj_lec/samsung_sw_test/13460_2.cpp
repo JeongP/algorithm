@@ -55,11 +55,13 @@ void initialize() {
 }
 
 void move(int &x, int &y, int mov_x, int mov_y, int &c) {
-    while(map[y+mov_y][x+mov_x] == '.')  
+    while(map[y+mov_y][x+mov_x] == '.' || map[y+mov_y][x+mov_x] == 'B' || map[y+mov_y][x+mov_x] == 'R')  
     {
+        
         x += mov_x;
         y += mov_y;
         c++;
+        // cout << x << " " << y << endl;
     }
 }
 
@@ -76,7 +78,10 @@ void sol() {
         int cur_cnt = q.front().cnt;
         q.pop();
         
-        if(cur_cnt >= 10) continue;
+        if(cur_cnt >= 10) {
+            cout << -1 << endl;
+            return;
+        }
         
         for(int i=0;i<4;i++) 
         {
@@ -90,9 +95,17 @@ void sol() {
             move(n_rx, n_ry, moveDir[i].x, moveDir[i].y, r_c);
             move(n_bx, n_by, moveDir[i].x, moveDir[i].y, b_c);
             // cout << r_c << " " << b_c << endl;
-            if(map[n_ry][n_rx] == 'O') {
-                if(map[n_by][n_bx] != 'O') {
+            if(map[n_ry + moveDir[i].y][n_rx + moveDir[i].x] == 'O') {
+                if(map[n_by + moveDir[i].y][n_bx + moveDir[i].x] != 'O') 
+                {
+                    // cout << n_rx << " " << n_ry << " , " << n_bx << " " << n_by << endl;
                     cout << cur_cnt + 1 << endl;
+                    return;
+                } 
+                else if (map[n_by + moveDir[i].y][n_bx + moveDir[i].x] == 'O')
+                {
+                    // cout << "?" << endl;
+                    cout << -1 << endl;
                     return;
                 }
             }
@@ -115,7 +128,7 @@ void sol() {
             q.push({n_rx, n_ry, n_bx, n_by, cur_cnt+1});
         }
     }
-    cout << -1 << endl;
+    
 }
 
 
