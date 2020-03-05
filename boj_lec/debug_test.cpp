@@ -3,16 +3,17 @@
 #include <vector>
 #include <cstring>
 #include <queue>
+#include <string>
 using namespace std;
 
 int a[5][5];
 
 int main () {
-    char a = 'a';
-    char b = 'A';
+    string a = "1234";
+    string b = "2314";
+    string c = "2344";
 
-    if(a==b) cout << 1 << endl;
-    else cout << 2 << endl;
+    cout << max(a,b) << endl;
 
 }
 
