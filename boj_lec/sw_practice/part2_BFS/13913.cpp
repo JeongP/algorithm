@@ -1,3 +1,10 @@
+/*
+
+    배운점.
+    - 경로를 어떻게 담을까에 대한 부분이 어려웠음.
+    - 도착점에 도달했을 때 첫 부분으로 찾아가기 위해 'beforeLoc = parent[afterLoc]'를 사용하면 된다는 것을 알 수 있었다.
+
+ */
 #include <iostream>
 #include <vector>
 #include <queue>
@@ -27,7 +34,7 @@ void prt(int n) {
         idx = parent[idx];
     }
     path.push_back(N);
-    
+
     for(int i=path.size()-1;i>=0;i--) {
         cout << path[i] << " ";
     }
