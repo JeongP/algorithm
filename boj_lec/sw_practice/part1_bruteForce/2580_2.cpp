@@ -1,94 +1,73 @@
-#include<iostream>
- 
-#define endl "\n"
-#define MAX 9
+#include <iostream>
+
 using namespace std;
- 
-int MAP[MAX][MAX];
-bool Row[MAX][MAX];
-bool Col[MAX][MAX];
-bool Square[MAX][MAX];
- 
-void Input()
-{
-    for (int i = 0; i < MAX; i++)
-    {
-        for (int j = 0; j < MAX; j++)
-        {
-            cin >> MAP[i][j];
-            if (MAP[i][j] != 0)
-            {
-                Row[i][MAP[i][j]] = true;
-                Col[j][MAP[i][j]] = true;
-                Square[(i / 3) * 3 + (j / 3)][MAP[i][j]] = true;
+
+const int MAX = 9;
+int map[MAX][MAX];
+bool col[MAX][MAX]; // col[i][j]: i번째 행에 j라는 수가 들어있는지..
+bool row[MAX][MAX];
+bool square[MAX][MAX];
+
+void input() {
+    for(int i=0;i<MAX;i++) {
+        for(int j=0;j<MAX;j++) {
+            cin >> map[i][j];
+            if(map[i][j]) {
+                col[i][map[i][j]] = true;
+                row[j][map[i][j]] = true;
+                square[(i/3)*3 + (j/3)][map[i][j]] = true;
             }
+
         }
     }
 }
- 
-void Print()
-{
-    for (int i = 0; i < MAX; i++)
-    {
-        for (int j = 0; j < MAX; j++)
-        {
-            cout << MAP[i][j] << " ";
+
+void prt() {
+    for(int i=0;i<MAX;i++) {
+        for(int j=0;j<MAX;j++) {
+            cout << map[i][j] << " ";
         }
         cout << endl;
     }
 }
- 
-void DFS(int Cnt)
-{
-    int x = Cnt / MAX;    // x 좌표
-    int y = Cnt % MAX;    // y 좌표
-    
-    if (Cnt == 81)
-    {
-        Print();
+
+void dfs(int depth) {
+
+    if(depth == 81) {
+        prt();
         exit(0);
     }
- 
-    if (MAP[x][y] == 0)
-    {
-        for (int i = 1; i <= 9; i++)
-        {
-            if (Row[x][i] == false && Col[y][i] == false && Square[(x / 3) * 3 + (y / 3)][i] == false)
-            {
-                Row[x][i] = true;
-                Col[y][i] = true;
-                Square[(x / 3) * 3 + (y / 3)][i] = true;
-                MAP[x][y] = i;
-                DFS(Cnt + 1);
-                MAP[x][y] = 0;
-                Row[x][i] = false;
-                Col[y][i] = false;
-                Square[(x / 3) * 3 + (y / 3)][i] = false;
+
+    int x = depth % 9;
+    int y = depth / 9;
+    
+    if(!map[y][x]) {
+        for(int k=1;k<=9;k++) {
+            if(!col[y][k] && !row[x][k] && !square[(y/3)*3 + (x/3)][k]) {
+                col[y][k] = true;
+                row[x][k] = true;
+                square[(y/3)*3 + (x/3)][k]= true;
+                map[y][x] = k;
+                dfs(depth+1);
+                map[y][x] = 0;
+                col[y][k] = false;
+                row[x][k] = false;
+                square[(y/3)*3 + (x/3)][k] = false;
             }
         }
+        
+    }else {
+        dfs(depth+1);
     }
-    else DFS(Cnt + 1);
+
 }
- 
-void Solution()
-{
-    DFS(0);
+
+
+void sol() {
+    dfs(0);
 }
- 
-void Solve()
-{
-    Input();
-    Solution();
-}
- 
-int main(void)
-{
-    ios::sync_with_stdio(false);
-    cin.tie(NULL);
-    cout.tie(NULL);
- 
-    //freopen("Input.txt", "r", stdin);
-    Solve();
- 
-    return 0;
+
+int main () {
+    input();
+    sol();
 }
