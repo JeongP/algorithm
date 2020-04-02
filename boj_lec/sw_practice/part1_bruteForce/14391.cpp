@@ -50,26 +50,29 @@ int makeSize(int y, int x, char c) {
             else break;
         }
     }
-    cout << val << endl;
+    // cout << val << endl;
     return val;
 }
 
 int make_subSum(int y,int x, char c, int siz) {
     int total = 0;
     if(c == 'G') {
-        for(int i=x;i<=x+siz;i++) {
+        for(int i=x;i<x+siz;i++) {
             total += map[y][i];
+            total = total*10;
         }
     }else {
-        for(int i=y;i<=y+siz;i++) {
+        for(int i=y;i<y+siz;i++) {
             total += map[i][x];
+            total = total * 10;
         }
     }
-    // cout << total << endl;
+    total /= 10;
     return total;
 }
 
 void dfs(int total) {
+    
     // 어디서부터 잘라야되는지 시작점 잡고
     pair<int,int> startPoint = findPoint();
     int y = startPoint.first;
@@ -77,39 +80,40 @@ void dfs(int total) {
 
     // 더 이상 절단할 부분이 없다면
     if(x==-1 && y==-1) {
-        cout << total << endl;
+        // cout << total << endl;
         sum = max(total, sum);
         return;
     }
 
     // 가로로 최대한 갈 수 있는 부분 찾기.
-    int size = makeSize(y,x,'G')-1;
-    for(int i=size;i>=0;i++) {
+    int size = makeSize(y,x,'G');
+    for(int i=size;i>0;i--) {
         // 방문처리하고
-        for(int j=x;j<=x+i;j++) {
+        for(int j=x;j<x+i;j++) {
             visit[y][j] = true;
         }
         // 해당 범위의 합 구하고
         int subsum = make_subSum(y,x,'G',i);
+        // cout << subsum << endl;
         // DFS
         dfs(total + subsum);
         // 방문처리 해제
-        for(int j=x;j<=x+i;j++) {
+        for(int j=x;j<x+i;j++) {
             visit[y][j] = false;
         }
     }
-    size = makeSize(y,x,'S')-1;
-    
-    for(int i=size;i>=0;i++) {
-        for(int j=y;j<=y+i;j++) {
+
+    size = makeSize(y,x,'S');
+    for(int i=size;i>0;i--) {
+        for(int j=y;j<y+i;j++) {
             visit[j][x] = true;
         }
 
         int subsum = make_subSum(y,x,'S',i);
         dfs(total+subsum);
 
-        for(int j=y;j<=y+i;j++) {
-            visit[j][x] = true;
+        for(int j=y;j<y+i;j++) {
+            visit[j][x] = false;
         }
     }
 
