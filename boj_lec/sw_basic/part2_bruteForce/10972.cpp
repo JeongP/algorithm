@@ -1,81 +1,93 @@
-// 다음순열
 #include <iostream>
 #include <vector>
-#include <stack>
+#include <algorithm>
 using namespace std;
 
-const int MAX = 10001;
-bool visit[MAX];
-vector<int> v;
-stack<int> s;
-stack<int> s2;
 int N;
-bool vFind;
+vector<int> v;
+vector<int> standv;
+bool visit[10001];
+bool flagVal;
 
-void prt(stack<int> s) {
-    for(int i=0;i<s.size();i++) {
-        int x = s.top();
-        s.pop();
-        s2.push(x);
-    }
-
-    for(int i=0;i<s2.size();i++) {
-        int x = s2.top();
-        s2.pop();
-        cout << x << " ";
+void input() {
+    cin >> N;
+    for(int i=1;i<=N;i++) {
+        int x; cin >> x;
+        standv.push_back(x);
     }
 }
 
-void dfs(int n, int depth) {
-    if(vFind) {
-        if(depth==N-1) {
-            prt(s);
-        } else {
-            for(int i=1;i<=N;i++) {
-                if(!visit[i]) {
-                    visit[i] = true;
-                    s.push(i);
-                    dfs(i,depth+1);
-                    s.pop();
-                    visit[i] = false;
-                }
-            }
-        }
+bool isEqual() {
+    for(int i=0;i<N;i++) {
+        if(standv[i] != v[i]) return false;
+    }
+    return true;
+}
 
+void prt() {
+    for(int i=0;i<N;i++) {
+        cout << v[i] << " ";
+    }
+    cout << endl;
+}
+
+void dfs(int depth) {
+    
+    if(depth == N) {
+        if(!flagVal) {
+            flagVal = isEqual();
+        }else {
+            prt();
+            exit(0);
+        }
     }
     
-    if(depth == N-1) {
-        vFind = true;
-        return;
-    }
-
     for(int i=1;i<=N;i++) {
-        if(!visit[i] && v[i]==i) {
+        if(!visit[i]) {
             visit[i] = true;
-            s.push(i);
-            dfs(i,depth+1);
-            s.pop();
+            v.push_back(i);
+            dfs(depth+1);
+            v.pop_back();
             visit[i] = false;
         }
     }
 }
 
-int main () {
+bool desc (int a, int b) {
+    return a > b;
+}
 
-    cin >> N;
-    
-    int a;
+bool isLast() {
     for(int i=1;i<=N;i++) {
-        cin >> a;
-        v.push_back(a);
+        v.push_back(i);
     }
+    sort(v.begin(),v.end(),desc);
+    if(isEqual()) {
+        return true;
+    } else {
+        while(!v.empty()) {
+            v.pop_back();
+        }
+        return false;
+    }
+}
 
+void sol() {
+    if(isLast()) {
+        cout << -1 << endl;
+        exit(0);
+    }
     for(int i=1;i<=N;i++) {
         visit[i] = true;
-        s.push(i);
-        dfs(i, 0);
-        s.pop();
+        v.push_back(i);
+        dfs(1);
+        v.pop_back();
         visit[i] = false;
     }
+}
 
+int main () {
+    input();
+    sol();
+    return 0;
 }
