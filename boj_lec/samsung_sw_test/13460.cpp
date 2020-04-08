@@ -34,7 +34,7 @@ void initialize() {
             {
                 bx = j; by = i;
             }
-            if(map[i][j] == '0')
+            if(map[i][j] == 'O')
             {
                 gx = j; gy = i;
             }
