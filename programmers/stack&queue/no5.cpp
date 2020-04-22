@@ -15,12 +15,19 @@ int solution(string arrangement) {
 
     while(!q.empty()) {
         char x = q.front();
+        q.pop();
         if(x == '(') {
             stick++;
             laser = false;
+            answer++;
+            
         } else if( x == ')') {
             if(laser == false) {
+                answer--;
                 laser = true;
+                stick--;
+                answer += stick;
+            } else {
                 stick--;
             }
         }

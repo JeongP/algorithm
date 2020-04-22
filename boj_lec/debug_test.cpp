@@ -10,14 +10,16 @@ using namespace std;
 int a[5][5];
 
 int main () {
-    string a = "1234";
-    string b = "2314";
-    string c = "2344";
+    priority_queue<int, vector<int>, greater<int>> pq;
+    pq.push(3);
+    pq.push(9);
+    pq.push(6);
 
-    cout << max(a,b) << endl;
-    int n = pow(10,3);
-    cout << n << endl;
-
+    while(!pq.empty()) {
+        int x = pq.top();
+        pq.pop();
+        cout << x << " ";
+    }
 
 }
 
