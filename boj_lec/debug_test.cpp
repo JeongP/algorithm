@@ -10,13 +10,15 @@ using namespace std;
 int a[5][5];
 
 int main () {
-    priority_queue<int, vector<int>, greater<int>> pq;
-    pq.push(3);
-    pq.push(9);
-    pq.push(6);
+    priority_queue<pair<int,int>, vector<pair<int,int>>, greater<pair<int,int>>> pq;
+    pq.push(make_pair(3,2));
+    pq.push(make_pair(7,2));
+    pq.push(make_pair(6,2));
+    // pq.push(9);
+    // pq.push(6);
 
     while(!pq.empty()) {
-        int x = pq.top();
+        int x = pq.top().first;
         pq.pop();
         cout << x << " ";
     }
