@@ -15,11 +15,9 @@ int solution(string skill, vector<string> skill_trees) {
                 alphabet[idx] = true;
             }
         }
-        for(int k=0;k<6;k++) {
-            cout << alphabet[k] << " ";
-        }
+        
         int chk_idx = 0;
-        for(int j=0; j<skill_trees[i].length();i++) {
+        for(int j=0; j<skill_trees[i].length();j++) {
             int idx = skill_trees[i][j] - 'A';    
             // 선행스킬순서에 포함되는 알파벳이라면
             if(alphabet[idx]) {
