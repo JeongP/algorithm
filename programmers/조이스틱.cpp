@@ -89,9 +89,6 @@ int solution(string name) {
             answer += lcnt;
             idx = leftIdx;
         }
-
-        // 방문 채워주기
-        for()
         
     }
 
