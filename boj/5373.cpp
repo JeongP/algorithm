@@ -45,35 +45,35 @@ int selectPhase(char where) {
     else if(where == 'F') return 3;
     else if(where == 'B') return 4;
     else if(where == 'L') return 5;
-    else if(where == 'R') return 6;
+    else return 6;
 }
 
 void moveMain(char where, char dir) {
     int phase = selectPhase(where);
     if(dir == '+') {
-        char tmp = Cube[phase][0];
+        int t1 = Cube[phase][0];
         Cube[phase][0] = Cube[phase][6];
         Cube[phase][6] = Cube[phase][8];
         Cube[phase][8] = Cube[phase][2];
-        Cube[phase][2] = tmp;
+        Cube[phase][2] = t1;
         
-        tmp = Cube[phase][1];
+        int t2 = Cube[phase][1];
         Cube[phase][1] = Cube[phase][3];
         Cube[phase][3] = Cube[phase][7];
         Cube[phase][7] = Cube[phase][5];
-        Cube[phase][5] = tmp;
+        Cube[phase][5] = t2;
     } else if (dir == '-') {
-        char tmp = Cube[phase][0];
+        char t1 = Cube[phase][0];
         Cube[phase][0] = Cube[phase][2];
         Cube[phase][2] = Cube[phase][8];
         Cube[phase][8] = Cube[phase][6];
-        Cube[phase][6] = tmp;
+        Cube[phase][6] = t1;
         
-        tmp = Cube[phase][1];
+        char t2 = Cube[phase][1];
         Cube[phase][1] = Cube[phase][5];
         Cube[phase][5] = Cube[phase][7];
         Cube[phase][7] = Cube[phase][3];
-        Cube[phase][3] = tmp;
+        Cube[phase][3] = t2;
     }
 }
 
@@ -189,27 +189,26 @@ void sol() {
                 Cube[5][5] = Cube[2][1];
                 Cube[5][8] = Cube[2][2];
 
-                Cube[2][0] = Cube[4][6];
-                Cube[2][1] = Cube[4][3];
-                Cube[2][2] = Cube[4][0];
+                Cube[2][0] = Cube[6][6];
+                Cube[2][1] = Cube[6][3];
+                Cube[2][2] = Cube[6][0];
 
-                Cube[4][0] = tmp1;
-                Cube[4][3] = tmp2;
-                Cube[4][6] = tmp3;
-
+                Cube[6][0] = tmp1;
+                Cube[6][3] = tmp2;
+                Cube[6][6] = tmp3;
             } else if(dir == '-'){
                 // 붙어있는 4면 바꾸기
                 char tmp1 = Cube[1][6];
                 char tmp2 = Cube[1][7];
                 char tmp3 = Cube[1][8];
 
-                Cube[1][6] = Cube[4][0];
-                Cube[1][7] = Cube[4][3];
-                Cube[1][8] = Cube[4][6];
+                Cube[1][6] = Cube[6][0];
+                Cube[1][7] = Cube[6][3];
+                Cube[1][8] = Cube[6][6];
 
-                Cube[4][0] = Cube[2][2];
-                Cube[4][3] = Cube[2][1];
-                Cube[4][6] = Cube[2][0];
+                Cube[6][0] = Cube[2][2];
+                Cube[6][3] = Cube[2][1];
+                Cube[6][6] = Cube[2][0];
 
                 Cube[2][0] = Cube[5][2];
                 Cube[2][1] = Cube[5][5];
@@ -332,7 +331,7 @@ void sol() {
 
                 Cube[4][6] = tmp1;
                 Cube[4][3] = tmp2;
-                Cube[4][3] = tmp3;
+                Cube[4][0] = tmp3;
 
             } else if(dir == '-'){
                 // 붙어있는 4면 바꾸기
@@ -385,3 +384,6 @@ int main () {
         
     }
 }
+
+
+// U+ B- R- F- D+ L- B+ U- 에서 반례
