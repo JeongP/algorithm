@@ -35,4 +35,10 @@ int main () {
     // find
     string a = "BlogBlogBlog";
     cout << a.find("Blog",10);
+
+
+    // string을 내림차순으로 sorting 하기.
+    string s = "abdknzpdknfz";
+    sort(s.begin(),s.end(),greater<int>());
+    cout << s;
 }
