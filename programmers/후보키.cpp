@@ -37,4 +37,18 @@ int solution(vector<vector<string>> relation) {
 
     sort(candidates.begin(),candidates.end(), desc);
 
+    while(!candidates.empty()) {
+        int n = candidates.back();
+        candidates.pop_back();
+        answer++;
+        
+        for(vector<int>::iterator it = candidates.begin(); it != candidates.end(); it++) {
+            if((n & *it) == n) {
+                it = candidates.erase(it);
+            }else {
+                it++;
+            }
+        }
+
+    }
 }
