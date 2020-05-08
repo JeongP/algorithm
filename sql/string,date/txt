@@ -1,0 +1,33 @@
+#1 루시와 엘라 찾기 (문자열 찾기))
+SELECT animal_id, name, sex_upon_intake
+from animal_ins where name in ('Lucy', 'Ella', 'Pickle', 'Rogan', 'Sabrina', 'Mitty')
+
+#2 이름에 el이 들어가는 동물 찾기 (문자열 포함하는))
+-- 코드를 입력하세요
+SELECT animal_id, name from animal_ins where name like "%el%" and animal_type = "dog" order by name
+
+#3 중성화 여부 파악하기 (case 사용)
+SELECT 
+    animal_id, name,
+    case
+        when sex_upon_intake like "%Neutered%" then "O"
+        when sex_upon_intake like "%Spayed%" then "O"
+        else "X"
+    end
+from animal_ins
+
+select
+    animal_id, name,
+    case
+        when sex_upon_intake like "%Neutered%" or sex_upon_intake like "%Spayed%"
+        then "O"
+        else "X"
+    end
+from animal_ins
+
+
+#4 date 형 변환
+-- 코드를 입력하세요
+SELECT animal_id, name, date_format(datetime, '%Y-%m-%d') as '날짜'
+from animal_ins 
+order by animal_id
