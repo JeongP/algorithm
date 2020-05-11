@@ -5,7 +5,7 @@ using namespace std;
 
 int main () {
     vector<int> v1(6);
-    vector<int> v2(6,5);
+    vector<int> v워(6,5);
     vector<int> v3(v2); // 벡터 복사
     vector<int> v4;
     vector<int>::iterator it;
