@@ -7,7 +7,7 @@
 using namespace std;
 
 bool isDecimal(int number) {
-    // 소수찾기...
+    
     if (number == 2) return true; 
     if (number % 2 == 0) return false; 
      
