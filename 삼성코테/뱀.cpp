@@ -1,10 +1,12 @@
 #include <iostream>
 #include <queue>
+#include <deque>
 using namespace std;
 
 int N,K,L;
 int map[101][101];
 queue<pair<int, char>> moveInfo;
+deque<pair<int,int>> snake;
 int sec = 0;
 bool firstFlag = true;
 int startX = 1;
@@ -31,6 +33,7 @@ void input () {
 
     // 뱀은 2
     map[1][1] = 2;
+    snake.push_back(make_pair(1,1));
 
     cin >> L;
     int a; char b;
@@ -45,8 +48,8 @@ void move(int cnt, char dir) {
     if(firstFlag) {
         int dirX = directions[2][1];
         int dirY = directions[2][0];
-        int nx = startX;
-        int ny = startY;
+        int nx = snake.front().second;
+        int ny = snake.front().first;
 
         // cnt 만큼 move
         while(cnt--) {
@@ -56,11 +59,13 @@ void move(int cnt, char dir) {
                 if(map[ny][nx] == 1) {
                     sec++;
                     map[ny][nx] = 2;
+                    snake.push_front(make_pair(ny,nx));
                 } else if(map[ny][nx] == 0) {
                     sec++;
                     map[ny][nx] = 2;
-                    map[ny][startX] = 0;
-                    startX++;
+                    map[snake.back().first][snake.back().second] = 0;
+                    snake.push_front(make_pair(ny,nx));
+                    snake.pop_back();
                 }
             }
         }
@@ -80,8 +85,10 @@ void move(int cnt, char dir) {
     {
         int dirX = directions[nextDirIdx][1];
         int dirY = directions[nextDirIdx][0];
-        int nx = startX;
-        int ny = startY;
+
+        int nx = snake.front().second;
+        int ny = snake.front().first;
+        // cout << ny << "," << nx << endl;
         while(cnt--) {
             nx += dirX;
             ny += dirY;
@@ -89,12 +96,13 @@ void move(int cnt, char dir) {
                 if(map[ny][nx] == 0) {
                     sec++;
                     map[ny][nx] = 2;
-                    map[startY][startX] = 0;
-                    startX += dirX;
-                    startY += dirY;
+                    map[snake.back().first][snake.back().second] = 0;
+                    snake.push_front(make_pair(ny,nx));
+                    snake.pop_back();
                 }else if(map[ny][nx] == 1) {
                     sec++;
                     map[ny][nx] = 2;
+                    snake.push_front(make_pair(ny,nx));
                 }else if(map[ny][nx] == 2) {
                     sec++;
                     cout << sec << endl;
@@ -104,6 +112,7 @@ void move(int cnt, char dir) {
                 // 해당범위 밖, 즉 벽 만났을때 시간 더해주고 끝내기.
                 sec++;
                 cout << sec << endl;
+                // cout << "end" << endl;
                 exit(0);
             }
         }
@@ -125,9 +134,9 @@ void move(int cnt, char dir) {
             } else if(nextDirIdx == 1) {
                 nextDirIdx = 3;
             }else if(nextDirIdx == 2) {
-                nextDirIdx = 0;
-            }else if(nextDirIdx == 3) {
                 nextDirIdx = 1;
+            }else if(nextDirIdx == 3) {
+                nextDirIdx = 0;
             }
         }
     }
@@ -136,17 +145,21 @@ void move(int cnt, char dir) {
 }
 
 void playGame() {
-
+    int moveCnt = 0;
+    char dir;
     while(!moveInfo.empty()) {
-        int moveCnt = moveInfo.front().first;
-        char dir = moveInfo.front().second;
+        moveCnt = moveInfo.front().first - sec;
+        dir = moveInfo.front().second;
+        // cout << moveCnt << " ";
         moveInfo.pop();
         move(moveCnt,dir);
     }
+    
+    move(101, dir);
 }
 
 int main () {
     input();
     playGame();
-    // cout << sec << endl;
+    cout << sec << endl;
 }
