@@ -124,9 +124,9 @@ void move(int cnt, char dir) {
             } else if(nextDirIdx == 1) {
                 nextDirIdx = 2;
             }else if(nextDirIdx == 2) {
-                nextDirIdx = 1;
-            }else if(nextDirIdx == 3) {
                 nextDirIdx = 0;
+            }else if(nextDirIdx == 3) {
+                nextDirIdx = 1;
             }
         }else {
             if(nextDirIdx == 0) {
