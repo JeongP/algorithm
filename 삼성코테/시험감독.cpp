@@ -4,7 +4,7 @@ using namespace std;
 
 int N, B, C;
 vector<int> v;
-int gamdok = 0;
+long long gamdok = 0;
 
 void input() {
     cin >> N;
