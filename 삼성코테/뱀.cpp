@@ -1,3 +1,12 @@
+/*
+
+    1. 맵을 항상 초기화 해준다는 것을 잊지 말 것.
+    2. 바이러스의 좌표 또한 초기화 해주는 것.
+    3. 디버깅의 중요성.
+
+ */
+
+
 #include <iostream>
 #include <queue>
 #include <deque>
