@@ -1,0 +1,16 @@
+#2 최소값 구하기.
+-- 코드를 입력하세요
+# SELECT DATETIME FROM ANIMAL_INS ORDER BY DATETIME LIMIT 1
+SELECT MIN(DATETIME) as '시간' FROM ANIMAL_INS
+
+#3 동물 수 구하기.
+-- 코드를 입력하세요
+# SELECT count(ANIMAL_ID) AS count FROM ANIMAL_INS
+select count(animal_id) from animal_ins
+
+#4 중복 제거하기
+-- 코드를 입력하세요
+# SELECT COUNT(DISTINCT NAME) FROM ANIMAL_INS WHERE NAME IS NOT NULL
+# SELECT COUNT(NAME) FROM (SELECT DISTINCT NAME FROM ANIMAL_INS WHERE NAME IS NOT NULL)SQL1
+# SELECT COUNT(NAME) FROM (SELECT NAME FROM ANIMAL_INS WHERE NAME IS NOT NULL GROUP BY NAME )SQL1
+select count(distinct name) from animal_ins where name is not null
