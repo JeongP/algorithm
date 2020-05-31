@@ -216,9 +216,9 @@ void setting(int idx) {
     if(idx == cctv.size()) {
         goGame();
         checkAnswer();
-        cout << "Game Cnt : " << gameCnt++ << endl;
-        cout << endl;
-        prt();
+        // cout << "Game Cnt : " << gameCnt++ << endl;
+        // cout << endl;
+        // prt();
         // cout << endl << result;
         map_init();
         return;
