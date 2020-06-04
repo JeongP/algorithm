@@ -82,7 +82,7 @@ void chickenDistance() {
 }
 
 
-void select(int cnt) {
+void select(int idx, int cnt) {
     if(cnt == M) {
         chickenDistance();
         // cout << endl;
@@ -91,10 +91,10 @@ void select(int cnt) {
         return;
     }
 
-    for(int i=0;i<v.size();i++) {
+    for(int i=idx;i<v.size();i++) {
         if(!visit[i]) {
             visit[i] = true;
-            select(cnt+1);
+            select(i,cnt+1);
             visit[i] = false;
         }
     }
@@ -111,18 +111,18 @@ void init() {
 int main(int argc, char** argv)
 {
 	int test_case;
-	int T = 1;
+	// int T = 1;
 	
 	// freopen("input.txt", "r", stdin);
 	// cin>>T;
     
-	for(test_case = 1; test_case <= T; ++test_case)
-	{   
+	// for(test_case = 1; test_case <= T; ++test_case)
+	// {   
         // init();
         input();
-        select(0);
+        select(0,0);
         cout << result << endl;
         // cout << "#" << test_case << " " << result << endl;
-	}
+	// }
 	return 0;//정상종료시 반드시 0을 리턴해야합니다.
 }
